@@ -40,6 +40,19 @@ class HomePage {
       return cy.get(locators.searchHeading);
     });
   }
+
+  getAdsInCategory() {
+    return cy.get('@locators').then((locators) => {
+      return cy.get(locators.adsInCategory);
+    });
+  }
+
+  getCategoryName() {
+    return cy.get('@locators').then((locators) => {
+      return cy.get(locators.searchHeading);
+    });
+  }
+
 }
 
 export default HomePage;

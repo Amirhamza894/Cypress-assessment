@@ -3,7 +3,7 @@
     "verticals": "span[class$='_265fbf76 a1c1940e b7af14b4']",
     "horizontalCategory": "div[aria-label$='Category with hits section']",
     "categoryHeading": "div[class$='_948d9e0a ab75e5c3 d7383df5 _3ec8085e']",
-    "adsInCategories": "article[class='_84ba2e24']",
+    "adsInCategory": "article[class='_84ba2e24']",
     "searchBar": "input[autocomplete$='free-text-search']",
     "categoryList": "div[class$='_0272c9dc e0339389'] a",
     "searchHeading": "h1[class='_7c57f8f7']"

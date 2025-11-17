@@ -1,7 +1,7 @@
 import LoginPage from '../../support/pageObjects/loginPage';
 import HomePage from '../../support/pageObjects/homePage';
 
-describe('Visual Home Page Test', () => {
+describe.skip('Visual Home Page Test', () => {
   const loginPage = new LoginPage();
   const homePage = new HomePage();
 

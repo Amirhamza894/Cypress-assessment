@@ -35,7 +35,7 @@ const homePage = new HomePage();
       // Also, verify that each category has at least one ad (or at least some content)
       homePage.getHorizontalCategory().each(($cat) => {
         // For each category item, check if it contains an ad link or thumbnail
-        cy.wrap($cat).find(homePage.getAdsInCategories()).should("exist");
+        cy.wrap($cat).find("article[class='_84ba2e24']").should("exist");
       });
     });
 
@@ -59,7 +59,7 @@ const homePage = new HomePage();
                 // wrap the section so we can use Cypress commands on it
                 cy.wrap(section)
                     // find the nested div with the class ending you mentioned
-                    .find(homePage.getCategoryName())
+                    .find("div[class$='_948d9e0a ab75e5c3 d7383df5 _3ec8085e']")
                     .invoke("text")
                     .then((text) => {
                     actualNestedTexts.push(text.trim());

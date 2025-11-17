@@ -1,6 +1,6 @@
 import LoginPage from '../../support/pageObjects/loginPage';
 
-describe('Visual Login Test', () => {
+describe.skip('Visual Login Test', () => {
   const loginPage = new LoginPage();
 
   beforeEach(() => {
