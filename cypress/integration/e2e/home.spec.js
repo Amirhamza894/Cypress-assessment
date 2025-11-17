@@ -9,32 +9,33 @@ const homePage = new HomePage();
 
   beforeEach(() => {
     cy.on('uncaught:exception', () => false);
+    cy.fixture('homeLocators.json').as('locators');
     loginPage.visit();
   });
 
   context("TC-1: Verify horizontal list categories on home screen", () => {
     it("should show Motors and Properties tabs", () => {
       // Example selectors — replace with real ones
-      cy.get("span[class$='_265fbf76 a1c1940e b7af14b4']").first().invoke("text").then((text) => {
+      homePage.getVerticals().first().invoke("text").then((text) => {
         expect(text.trim()).to.equal("Motors");
       })
-      cy.get("span[class$='_265fbf76 a1c1940e b7af14b4']").eq(1).invoke("text").then((text) => {
+      homePage.getVerticals().eq(1).invoke("text").then((text) => {
         expect(text.trim()).to.equal("Property");
       })
     });
 
     it("should show horizontal categories list with ads", () => {
       // Assuming categories are in a horizontal scrollable container
-      cy.get("div[aria-label$='Category with hits section']").should("be.visible");
+      homePage.getHorizontalCategory().should("be.visible");
 
       // Check there are at least some category items
-      cy.get("div[aria-label$='Category with hits section']")
+      homePage.getHorizontalCategory()
         .should("have.length", 8)
 
       // Also, verify that each category has at least one ad (or at least some content)
-      cy.get("div[aria-label$='Category with hits section']").each(($cat) => {
+      homePage.getHorizontalCategory().each(($cat) => {
         // For each category item, check if it contains an ad link or thumbnail
-        cy.wrap($cat).find("article[class='_84ba2e24']").should("exist");
+        cy.wrap($cat).find(homePage.getAdsInCategories()).should("exist");
       });
     });
 
@@ -46,7 +47,7 @@ const homePage = new HomePage();
       ];
 
 
-        cy.get("div[aria-label$='Category with hits section']")
+        homePage.getHorizontalCategory()
             // make sure there are enough of them
             .should("have.length.at.least", expectedCategories.length)
             .then(($sections) => {
@@ -58,7 +59,7 @@ const homePage = new HomePage();
                 // wrap the section so we can use Cypress commands on it
                 cy.wrap(section)
                     // find the nested div with the class ending you mentioned
-                    .find("div[class$='_948d9e0a ab75e5c3 d7383df5 _3ec8085e']")
+                    .find(homePage.getCategoryName())
                     .invoke("text")
                     .then((text) => {
                     actualNestedTexts.push(text.trim());
@@ -81,17 +82,17 @@ const homePage = new HomePage();
 
   context("TC-2: Verify categories list showing on home page and navigation", () => {
     it("should have search bar on home page", () => {
-      cy.get("input[autocomplete$='free-text-search']").should("be.visible");
+      homePage.getSearchBar().should("be.visible");
       // or specific selector if OLX uses different input
     });
 
     it("should show categories list on home screen", () => {
-      cy.get("div[class$='_0272c9dc e0339389'] a").should("have.length", 14);
+      homePage.getCategoryList().should("have.length", 14);
     });
 
     it("clicking a category navigates to search page", () => {
       // Choose a category to click
-      cy.get("div[class$='_0272c9dc e0339389'] a")
+      homePage.getCategoryList()
         .contains("Vehicles")  // pick one
         .click();
 
@@ -100,7 +101,7 @@ const homePage = new HomePage();
 
       // Verify category is shown on search page
       // For example, the header or a breadcrumb
-      cy.get("h1[class='_7c57f8f7']").should("contain.text", "Vehicles");
+      homePage.getSearchHeading().should("contain.text", "Vehicles");
     });
   });
 });
