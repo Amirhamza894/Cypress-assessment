@@ -10,6 +10,8 @@ on:
   schedule:
     - cron: '0 3 * * 0' # Runs every Sunday at 3 AM UTC
 
+  workflow_dispatch:  # 👈 enables manual runs
+
 jobs:
   e2e-and-api-tests:
     if: github.event_name == 'push'
