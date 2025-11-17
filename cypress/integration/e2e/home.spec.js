@@ -57,6 +57,7 @@ const homePage = new HomePage();
                 // Loop through each section
                 Cypress._.forEach($sections, (section) => {
                 // wrap the section so we can use Cypress commands on it
+                
                 cy.wrap(section)
                     // find the nested div with the class ending you mentioned
                     .find("div[class$='_948d9e0a ab75e5c3 d7383df5 _3ec8085e']")

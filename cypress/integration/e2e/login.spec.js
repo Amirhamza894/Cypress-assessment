@@ -61,7 +61,7 @@ describe('E2E Login Functionality', () => {
     loginPage
     .getPasswordInput()
     .should('be.visible')
-    .type(testData.invalidPassword);
+    .type(Cypress.env('INVALID_PASS'));
 
     loginPage
     .getPasswordContinueButton()
