@@ -5,7 +5,7 @@ describe('Visual Login Test', () => {
 
   beforeEach(() => {
     cy.eyesOpen({
-      appName: 'Dubizzle BH',
+      appName: 'OLX PK',
       testName: 'Login Page Visual Test',
     });
     loginPage.visit();
