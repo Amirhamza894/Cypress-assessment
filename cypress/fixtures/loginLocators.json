@@ -1,0 +1,9 @@
+{
+  "loginButton": "button[aria-label$='Login']",
+  "loginWithEmail": "button[aria-label='Login with Email']",
+  "emailInput": "#email",
+  "passwordInput": "#password",
+  "passwordContinueButton": "button[class='_91e21052 e07f63ca']",
+  "invalidErrorMessage": "div[class$='_540e4c78'] span:first-child",
+  "noAccount": "div[class='_540e4c78'] span"
+}

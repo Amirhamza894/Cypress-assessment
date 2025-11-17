@@ -1,0 +1,17 @@
+TestID,Feature,Test Case Description,Precondition,Steps,Expected Result,Priority
+TC001,Search,Search by keyword,“OLX home page loaded”,1. Click on search bar, 2. Type “Honda Civic”, 3. Press Enter,Search results are displayed containing “Honda Civic” related listings,High
+TC002,Search,Search with filters by category and price,“On search page”,1. Click search, 2. Select category “Cars”, 3. Set price range 500,000–1,500,000 PKR, 4. Click Search,Only listings matching category “Cars” and in the price range are displayed,High
+TC003,Search,Search with no results,“On search page”,1. Type “asdasdasdasd”, 2. Press Enter,Show a “No results found” message or empty result list,Medium
+TC004,Search,Pagination of search results,“Search results > page limit”,1. Perform a common keyword search,2. Scroll to bottom,3. Click “Next” / page 2,Page 2 of results loads correctly,Medium
+TC005,Motors,Browse used cars,“Motors page loaded”,1. Navigate to Motors tab,2. Click “Used Cars”,Used cars listing page is displayed with multiple listings,High
+TC006,Motors,Filter used cars by Make + Model,“Used cars page loaded”,1. Open filter panel,2. Select Make “Toyota”, Model “Corolla”,3. Apply filter,Only Toyota Corolla cars are shown,High
+TC007,Motors,Sort used cars by Price Ascending,“Filtered used cars showing”,1. Click “Sort by”,2. Choose “Price: Low to High”,Listings are re-ordered from lowest to highest price,Medium
+TC008,Motors,View car listing details,“Used cars list displayed”,1. Click on first listing,Car detail page shows images, description, seller contact, mileage, etc.,High
+TC009,Motors,Auction sheet verification,“On car detail page with Japanese import”,1. Click on “Request Auction Sheet”,2. Proceed to payment (if part of flow),User can request/view the auction sheet correctly,High
+TC010,Motors,Contact seller,“On car detail page”,1. Click “Chat” or “Call”,2. Send a message or initiate call,Seller contact interface opens, message is sent or call starts,High
+TC011,Property,Browse properties for sale,“Property tab loaded”,1. Click on “Properties”,2. Select “For Sale”,Listings of properties for sale are displayed by type (house, plot, etc.),High
+TC012,Property,Filter properties by type and city,“Properties for sale page”,1. Open filter panel,2. Select type “Apartment”, City “Lahore”,3. Apply filter,Only Lahore apartments are shown,High
+TC013,Property,Sort property listing,“Filtered property listing”,1. Click sort dropdown,2. Choose sort by “Price: High to Low”,Listings are reordered accordingly,Medium
+TC014,Property,View property details,“Property list showing”,1. Click on a property,Property detail page shows images, description, size, amenities, contact,High
+TC015,Property,Post a property ad,“User logged in”,1. Navigate to Post Ad,2. Select “Property for Sale”,3. Fill fields (type, city, price, images, description),4. Submit,Ad is posted / previewed / submitted for review,High
+TC016,Property,Property required listing,“User on Property Required page”,1. Navigate to “Property Required”,2. Fill required form (type, city, budget),3. Submit, “Property required” ad is created / shown in your profile,Medium

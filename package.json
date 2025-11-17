@@ -1,0 +1,25 @@
+{
+  "name": "cypress-e2e-automation",
+  "version": "1.0.0",
+  "description": "Cypress E2E Automation Framework for API, UI, and Visual Testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cypress",
+    "e2e",
+    "api",
+    "ui",
+    "visual",
+    "testing"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@applitools/eyes-cypress": "^3.56.4",
+    "@percy/cypress": "^3.1.6",
+    "cypress": "^15.6.0",
+    "dotenv": "^17.2.3"
+  }
+}
