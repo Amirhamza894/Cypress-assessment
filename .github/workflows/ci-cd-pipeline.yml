@@ -4,17 +4,26 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'cypress/integration/e2e/**'
-      - 'cypress/integration/api/**'
   schedule:
     - cron: '0 3 * * 0' # Runs every Sunday at 3 AM UTC
-
-  workflow_dispatch:  # 👈 enables manual runs
+  workflow_dispatch:
+    inputs:
+      test_type:
+        description: 'Type of tests to run'
+        required: false
+        default: 'e2e-and-api'
+        type: choice
+        options:
+          - e2e-and-api
+          - visual
+          - all
 
 jobs:
   e2e-and-api-tests:
-    if: github.event_name == 'push'
+    if: |
+      github.event_name == 'push' || 
+      (github.event_name == 'workflow_dispatch' && 
+       (github.event.inputs.test_type == 'e2e-and-api' || github.event.inputs.test_type == 'all'))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,7 +44,10 @@ jobs:
           TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
 
   visual-tests:
-    if: github.event_name == 'schedule'
+    if: |
+      github.event_name == 'schedule' || 
+      (github.event_name == 'workflow_dispatch' && 
+       (github.event.inputs.test_type == 'visual' || github.event.inputs.test_type == 'all'))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
