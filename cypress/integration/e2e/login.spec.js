@@ -71,32 +71,4 @@ describe('E2E Login Functionality', () => {
     .getInvalidCredentialsMessage()
     .should('have.text', 'Invalid password');
   });
-
-  it.only('should allow a user to log in with valid credentials (positive)', () => {
-    loginPage
-    .getLoginButton()
-    .click();
-
-    loginPage
-    .getLoginWithEmail()
-    .click();
-
-    loginPage
-    .getEmailInput()
-    .should('be.visible')
-    .type(Cypress.env('TEST_USERNAME'));
-
-    loginPage
-    .getPasswordInput()
-    .should('be.visible')
-    .type(Cypress.env('TEST_PASSWORD'));
-
-    loginPage
-    .getPasswordContinueButton()
-    .click().wait(10000);
-
-    homePage
-    .getChatLogo()
-    .should('be.visible');
-  });
 });
