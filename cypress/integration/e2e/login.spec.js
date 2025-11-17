@@ -25,7 +25,7 @@ describe('E2E Login Functionality', () => {
     loginPage
     .getEmailInput()
     .should('be.visible')
-    .type(testData.invalidEmail);
+    .type(Cypress.env('TEST_USERNAME'));
 
     loginPage
     .getPasswordInput()
@@ -56,7 +56,7 @@ describe('E2E Login Functionality', () => {
     loginPage
     .getEmailInput()
     .should('be.visible')
-    .type(Cypress.env('TEST_USERNAME'));
+    .type(Cypress.env('VALID_EMAIL'));
 
     loginPage
     .getPasswordInput()

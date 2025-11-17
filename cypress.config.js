@@ -11,7 +11,7 @@ module.exports = defineConfig({
       };
       return config;
     },
-    specPattern: 'cypress/integration/e2e/home.spec.js',
+    specPattern: 'cypress/integration/**/*.spec.js',
     excludeSpecPattern: '',
     baseUrl: 'https://www.olx.com.pk/',
 
